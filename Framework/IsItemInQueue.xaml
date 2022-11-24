@@ -1,0 +1,184 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="IsItemInQueue" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:rpu="clr-namespace:RpaWork.Paw.UiPath;assembly=rpawork.robot.helper.uipath" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_strQueueName" Type="InArgument(x:String)" />
+    <x:Property Name="io_dtAddWork" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_strInputKey" Type="InArgument(x:String)" />
+    <x:Property Name="in_intUniqueControlDay" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_in_tmStartTime" Type="InArgument(s:DateTime)" />
+    <x:Property Name="in_isUniqueIncludeCompleted" Type="InArgument(s:Nullable(x:Boolean))" />
+    <x:Property Name="in_isUniqueIncludeFailed" Type="InArgument(s:Nullable(x:Boolean))" />
+    <x:Property Name="in_isUniqueIncludeDisabled" Type="InArgument(s:Nullable(x:Boolean))" />
+    <x:Property Name="in_isUniqueIncludeExpired" Type="InArgument(s:Nullable(x:Boolean))" />
+    <x:Property Name="in_isUniqueIncludeIdle" Type="InArgument(s:Nullable(x:Boolean))" />
+  </x:Members>
+  <this:IsItemInQueue.in_strInputKey>
+    <InArgument x:TypeArguments="x:String" />
+  </this:IsItemInQueue.in_strInputKey>
+  <this:IsItemInQueue.in_isUniqueIncludeCompleted>
+    <InArgument x:TypeArguments="s:Nullable(x:Boolean)" />
+  </this:IsItemInQueue.in_isUniqueIncludeCompleted>
+  <this:IsItemInQueue.in_isUniqueIncludeFailed>
+    <InArgument x:TypeArguments="s:Nullable(x:Boolean)" />
+  </this:IsItemInQueue.in_isUniqueIncludeFailed>
+  <this:IsItemInQueue.in_isUniqueIncludeDisabled>
+    <InArgument x:TypeArguments="s:Nullable(x:Boolean)" />
+  </this:IsItemInQueue.in_isUniqueIncludeDisabled>
+  <this:IsItemInQueue.in_isUniqueIncludeExpired>
+    <InArgument x:TypeArguments="s:Nullable(x:Boolean)" />
+  </this:IsItemInQueue.in_isUniqueIncludeExpired>
+  <this:IsItemInQueue.in_isUniqueIncludeIdle>
+    <InArgument x:TypeArguments="s:Nullable(x:Boolean)" />
+  </this:IsItemInQueue.in_isUniqueIncludeIdle>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1667,1435</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>IsItemInQueue_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>RpaWork.Paw.UiPath</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>rpawork.robot.helper.uipath</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="IsItemInQueue" sap:VirtualizedContainerService.HintSize="602,1567" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="intGetWorkRecordCount" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtUnique" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <rpu:LogMessage Id="{x:Null}" DisplayName="Log IsItemInQueue Started" sap:VirtualizedContainerService.HintSize="560,80" sap2010:WorkflowViewState.IdRef="LogMessage_2" LogLevel="Info" Message="IsItemInQueue Started" />
+    <Assign sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[dtUnique]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[io_dtAddWork.Clone]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[io_dtAddWork]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="560,745" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,624" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <rpu:GetWork CreatedDateBegin="{x:Null}" CreatedDateEnd="{x:Null}" EndDateBegin="{x:Null}" EndDateEnd="{x:Null}" GetWorkMessage="{x:Null}" GetWorkResult="{x:Null}" Id="{x:Null}" IncludeRunning="{x:Null}" IsGetWorkSuccess="{x:Null}" IsReported="{x:Null}" NoteFilter="{x:Null}" RelatedWorkId="{x:Null}" ReportDateBegin="{x:Null}" ReportDateEnd="{x:Null}" StartDateBegin="{x:Null}" StartDateEnd="{x:Null}" StatusNoteFilter="{x:Null}" WorkDateEnd="{x:Null}" DescriptionFilter="[row.Item(in_strInputKey).ToString()]" DisplayName="Get Work" GetWorkRecordCount="[intGetWorkRecordCount]" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="GetWork_3" IncludeCompleted="[in_isUniqueIncludeCompleted]" IncludeDisabled="[in_isUniqueIncludeDisabled]" IncludeExpired="[in_isUniqueIncludeExpired]" IncludeFailed="[in_isUniqueIncludeFailed]" IncludeIdle="[in_isUniqueIncludeIdle]" ProcessName="[in_strQueueName]" WorkDateBegin="[in_in_tmStartTime.AddDays(in_intUniqueControlDay)]" />
+            <If Condition="[Not intGetWorkRecordCount &gt; 0]" sap:VirtualizedContainerService.HintSize="484,470" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <Sequence DisplayName="True" sap:VirtualizedContainerService.HintSize="376,280" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[row.ItemArray]" DataTable="[dtUnique]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+    </ui:ForEachRow>
+    <Assign sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[io_dtAddWork]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[dtUnique]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[Not io_dtAddWork.RowCount &gt; 0]" sap:VirtualizedContainerService.HintSize="560,250" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Throw Exception="[new BusinessRuleException(&quot;No Data&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <rpu:LogMessage Id="{x:Null}" DisplayName="Log IsItemInQueue Completed" sap:VirtualizedContainerService.HintSize="560,80" sap2010:WorkflowViewState.IdRef="LogMessage_3" LogLevel="Info" Message="IsItemInQueue Completed" />
+  </Sequence>
+</Activity>

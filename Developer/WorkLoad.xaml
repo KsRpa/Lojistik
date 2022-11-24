@@ -1,0 +1,271 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="WorkLoad" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:rpu="clr-namespace:RpaWork.Paw.UiPath;assembly=rpawork.robot.helper.uipath" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_guidId" Type="InArgument(s:Nullable(s:Guid))" />
+    <x:Property Name="in_dtInput" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_dtInputAttachments" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="out_dtOutput" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_dtOutputAttachments" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_strNote" Type="InArgument(x:String)" />
+    <x:Property Name="in_strStatusNote" Type="InArgument(x:String)" />
+    <x:Property Name="in_intRunNumber" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_guidRelationWorkId" Type="InArgument(s:Nullable(s:Guid))" />
+  </x:Members>
+  <this:WorkLoad.in_in_Config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:WorkLoad.in_in_Config>
+  <this:WorkLoad.in_guidId>
+    <InArgument x:TypeArguments="s:Nullable(s:Guid)" />
+  </this:WorkLoad.in_guidId>
+  <this:WorkLoad.in_dtInput>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:WorkLoad.in_dtInput>
+  <this:WorkLoad.in_dtInputAttachments>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:WorkLoad.in_dtInputAttachments>
+  <this:WorkLoad.in_strNote>
+    <InArgument x:TypeArguments="x:String" />
+  </this:WorkLoad.in_strNote>
+  <this:WorkLoad.in_strStatusNote>
+    <InArgument x:TypeArguments="x:String" />
+  </this:WorkLoad.in_strStatusNote>
+  <this:WorkLoad.in_intRunNumber>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:WorkLoad.in_intRunNumber>
+  <this:WorkLoad.in_guidRelationWorkId>
+    <InArgument x:TypeArguments="s:Nullable(s:Guid)" />
+  </this:WorkLoad.in_guidRelationWorkId>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1487,1625</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>WorkLoad_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>RpaWork.Paw.UiPath</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>rpawork.robot.helper.uipath</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WorkLoad" sap:VirtualizedContainerService.HintSize="1497,1560" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Headers" />
+      <Variable x:TypeArguments="x:String" Name="ResponseContent" />
+      <Variable x:TypeArguments="x:Int32" Name="ResponseStatus" />
+      <Variable x:TypeArguments="x:String" Name="username" />
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <rpu:GetCredential GetCredentialMessage="{x:Null}" IsGetCredentialSuccess="{x:Null}" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="1455,79" sap2010:WorkflowViewState.IdRef="GetCredential_1" Name="KS_RPA_1Flow" Password="[password]" UserName="[username]" />
+    <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" SecureClientCertificatePassword="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://1flow.kocsistem.com.tr/api/kosb/rpaupdatetickets/record/update/rpa" sap:VirtualizedContainerService.HintSize="1455,57" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" Password="[Nothing]" ResponseHeaders="[Headers]" Result="[ResponseContent]" SecurePassword="[password]" StatusCode="[ResponseStatus]" TimeoutMS="6000" Username="[username]">
+      <ui:HttpClient.Attachments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Attachments>
+      <ui:HttpClient.Cookies>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Cookies>
+      <ui:HttpClient.Headers>
+        <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json;charset=UTF-8</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Accept">*/*</InArgument>
+      </ui:HttpClient.Headers>
+      <ui:HttpClient.Parameters>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.Parameters>
+      <ui:HttpClient.UrlSegments>
+        <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+      </ui:HttpClient.UrlSegments>
+    </ui:HttpClient>
+    <rpu:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1455,79" Id="[in_guidId.Value]" sap2010:WorkflowViewState.IdRef="LogMessage_1" LogLevel="Info" Message="[ResponseContent]" />
+    <rpu:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1455,79" Id="[in_guidId.Value]" sap2010:WorkflowViewState.IdRef="LogMessage_2" LogLevel="Info" Message="[ResponseStatus.ToString]" />
+    <If Condition="[ResponseContent.Contains(&quot;Kayıt&quot;) and ResponseContent.Contains(&quot;failure&quot;)]" sap:VirtualizedContainerService.HintSize="1455,1014" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw Exception="[new BusinessRuleException(&quot;BE001 - Kayıt bulunamadı.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="1168,856" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[ResponseContent.Contains(&quot;SUCCESS&quot;)]" sap:VirtualizedContainerService.HintSize="1126,764" sap2010:WorkflowViewState.IdRef="If_2">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="839,606" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="html" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Return_HTML_Table workflow" sap:VirtualizedContainerService.HintSize="797,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Developer\Return_HTML_Table.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="ResponseContent">[ResponseContent]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="html">[html]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <If Condition="[html.ToLower().Contains(&quot;patch&quot;)]" sap:VirtualizedContainerService.HintSize="797,362" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Send_Mail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom\Send_Mail.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="html">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="html" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_to">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_to&quot;).ToString()" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_cc">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_cc&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="subject">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_subject&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_body">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_body_patch&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_application_id">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;Application_ID&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_tenant_id">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;Tenant_ID&quot;).ToString" />
+                          </InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Send_Mail workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Custom\Send_Mail.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="html">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="html" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_to">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_to&quot;).ToString()" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_cc">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_cc&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="subject">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_subject&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="mail_body">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;send_mail_body_restart&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_application_id">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;Application_ID&quot;).ToString" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_tenant_id">
+                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_in_Config(&quot;Tenant_ID&quot;).ToString" />
+                          </InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw Exception="[new BusinessRuleException(&quot;BE002 - POST request gönderilemedi: &quot;+ResponseContent)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
